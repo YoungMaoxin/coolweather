@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.yangmaoxin.coolweather.gson.Forecast;
 import com.yangmaoxin.coolweather.gson.Weather;
+import com.yangmaoxin.coolweather.service.AutoUpdateService;
 import com.yangmaoxin.coolweather.util.HttpUtil;
 import com.yangmaoxin.coolweather.util.Utility;
 
@@ -225,6 +226,8 @@ public class WeatherActivity extends AppCompatActivity {
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
 
+        Intent intent=new Intent(WeatherActivity.this, AutoUpdateService.class);
+        startService(intent);
     }
 
     private void loadBingPic()
